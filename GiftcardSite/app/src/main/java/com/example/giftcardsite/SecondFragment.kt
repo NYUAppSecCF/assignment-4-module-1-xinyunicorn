@@ -66,10 +66,8 @@ class SecondFragment : Fragment() {
                         loggedInUser = response.body()
                         Log.d("Register Success", "Register success. Boo.")
                         Log.d("Register Success", "Token:" + loggedInUser?.token.toString())
-                        var intent = Intent(Intent.ACTION_VIEW)
-                        intent.type = "text/giftcards_browse"
-                        intent.data = Uri.parse("https://appsec.moyix.net/api/index")
-                        intent.putExtra("User", loggedInUser);
+                        val intent = Intent(requireContext(), ProductScrollingActivity::class.java)
+                        intent.putExtra("User", loggedInUser)
                         startActivity(intent)
                     }
                 }
